@@ -1,5 +1,7 @@
 # Gadget Mode on Raspberry Pi 5
 
+https://www.hardill.me.uk/wordpress/2023/12/23/pi5-usb-c-gadget/
+
 ### Enable Low Power USB Boot
 
 Add the following to `/boot/config.txt
