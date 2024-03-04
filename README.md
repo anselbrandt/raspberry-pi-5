@@ -1,5 +1,3 @@
-# raspberry-pi-5
-
 # Gadget Mode on Raspberry Pi 5
 
 ### Enable Low Power USB Boot
