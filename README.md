@@ -8,13 +8,19 @@ Add the following to `/boot/config.txt
 
 `usb_max_current_enable=1`
 
-Upda the Kernel and EEPROM to  enable USB C  connection
+### Update Kernel
+
+Update the Kernel and EEPROM to  enable USB C  connection
 
 `sudo rpi-update`
+
+### Configure kernel
 
 - Add `dtoverlay=dwc2` to the `/boot/config.txt` file
 - Add `modules-load=dwc2` to the end of `/boot/cmdline.txt` file
 - Add `libcomposite` to the end of the `/etc/modules` file
+
+### libcomposite
 
 Add the following to `/usr/local/sbin/usb-gadget.sh`:
 
@@ -80,11 +86,13 @@ sleep 5
 service dnsmasq restart
 ```
 
-sudo chmod + d `/usr/local/sbin/usb-gadget.sh`
+`sudo chmod +x /usr/local/sbin/usb-gadget.sh`
 
 Add the service to systemd:
 
 `sudo systemctl enable usbgadget.service`
+
+### NetworkManager
 
 ```
 sudo nmcli con add type bridge ifname br0
@@ -93,8 +101,9 @@ sudo nmcli con add type bridge-slave ifname usb1 master br0
 sudo nmcli connection modify bridge-br0 ipv4.method manual ipv4.addresses 10.55.0.1/24
 ```
 
-`sudo apt-get install dnsmasq`
+### DNSMASQ
 
+`sudo apt-get install dnsmasq`
 
 Add the following to `/etc/dnsmasq.d/br0`:
 
