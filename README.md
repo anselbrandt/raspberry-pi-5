@@ -88,6 +88,24 @@ service dnsmasq restart
 
 `sudo chmod +x /usr/local/sbin/usb-gadget.sh`
 
+Create `/lib/systemd/system/usbgadget.service` with the following contents:
+
+```
+[Unit]
+Description=My USB gadget
+After=network-online.target
+Wants=network-online.target
+#After=systemd-modules-load.service
+  
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/usb-gadget.sh
+  
+[Install]
+WantedBy=sysinit.target
+```
+
 Add the service to systemd:
 
 `sudo systemctl enable usbgadget.service`
