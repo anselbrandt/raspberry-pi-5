@@ -10,7 +10,7 @@ Add the following to `/boot/config.txt
 
 ### Update Kernel
 
-Update the Kernel and EEPROM to  enable USB C  connection
+Update the Kernel and EEPROM to enable USB C connection
 
 `sudo rpi-update`
 
@@ -96,12 +96,12 @@ Description=My USB gadget
 After=network-online.target
 Wants=network-online.target
 #After=systemd-modules-load.service
-  
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/local/sbin/usb-gadget.sh
-  
+
 [Install]
 WantedBy=sysinit.target
 ```
@@ -134,3 +134,9 @@ dhcp-range=10.55.0.2,10.55.0.6,255.255.255.248,1h
 dhcp-option=3
 leasefile-ro
 ```
+
+## Note for Ipad Pro
+
+For some reason the Raspberry Pi Ethernet connection only shows up when using a USB C to USB A cable connected to an adapter. Not sure why.
+
+https://github.com/raspberrypi/bookworm-feedback/issues/77#issuecomment-1875575543
