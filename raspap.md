@@ -8,4 +8,4 @@ Preconfigured Network
 
 sudo nano /etc/NetworkManager/system-connections/preconfigured.nmconnection
 
-That file needs to be deleted before reboot to prevent NetworkManager from atking over wlan0 and connecting to your wifi
+That file needs to be deleted before reboot to prevent NetworkManager from taking over wlan0 and connecting to your wifi
